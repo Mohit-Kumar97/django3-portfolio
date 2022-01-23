@@ -1,0 +1,26 @@
+
+{% extends 'projectsfolio/base.html' %}
+
+{% block content %}
+
+    <h1>Welcome</h1>
+<h2>test text</h2>
+
+<a href="{% url 'blog:blog_all'%}"> Blog Page</a><br>
+
+{% load static %}
+<a href="{% static 'projectsfolio/test.txt'%}">link</a>
+<a href="{% static 'projectsfolio/mohittest.pdf'%}"" target="_blank">link</a>
+
+{% for item in projects %}
+
+<h2>{{item.title}}</h2>
+<p>{{item.description}}</p>
+<img src="{{item.image.url}}" height="400" width="300">
+{% if item.url %}<br>
+<a href="{{item.url}}">link</a>
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}

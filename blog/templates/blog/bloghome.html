@@ -1,0 +1,16 @@
+
+{% extends 'projectsfolio/base.html' %}
+
+{% block content %}
+<h1>Welcome to Blog!</h1>
+
+
+<h2>Mohit has written {{blog.count}} blog{{blog.count|pluralize}}</h2>
+{% for item in blog%}
+<a href="{% url 'blog:detail' item.id  %}">{{item.title}}</a>
+<br>
+{{item.description|truncatechars:50}}
+<br>
+{% endfor %}
+
+{%endblock%}
